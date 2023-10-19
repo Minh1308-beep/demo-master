@@ -28,7 +28,7 @@
 
     <section class="flex">
     
-<a href="#" class="logo"> <i class="fas fa-shopping-basket"></i> groco </a>
+<a href="#" class="logo"> <i class="fas fa-shopping-basket"></i> group 6 </a>
 
     <nav class="navbar">
         <a href="#home">Trang chủ</a>
@@ -170,14 +170,15 @@
 
     <h1 class="heading"> Một Số <span>Sản Phẩm </span> </h1>
 
+    
     <div class="swiper product-slider">
-
+        
         <div class="swiper-wrapper">
-
+            <c:forEach items = "${listP}" var="p">
             <div class="swiper-slide box">
-                <img src="image/product-1.png" alt="">
-                <h3>Cam vàng úc 1kg </h3>
-                <div class="price"> 69.000  ₫ </div>
+                <img src= ${p.image} alt="">
+                <h3> ${p.name} </h3>
+                <div class="price">${p.price}.000₫</div>
                 <div class="stars">
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
@@ -185,119 +186,35 @@
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star-half-alt"></i>
                 </div>
-                <a href="#" class="btn">Mua</a>
+                <a href="#" class="btn">Add cart</a>
             </div>
-
-            <div class="swiper-slide box">
-                <img src="image/product-2.png" alt="">
-                <h3>Hành tím 300g</h3>
-                <div class="price"> 15.000₫ </div>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-                <a href="#" class="btn">Mua</a>
-            </div>
-
-            <div class="swiper-slide box">
-                <img src="image/product-3.png" alt="">
-                <h3>Thịt bò ba chỉ 250g</h3>
-                <div class="price"> 80.000₫
-                    / </div>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-                <a href="#" class="btn">Mua</a>
-            </div>
-
-            <div class="swiper-slide box">
-                <img src="image/product-4.png" alt="">
-                <h3>Bắp cải 500-600g</h3>
-                <div class="price"> 12.000₫ </div>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-                <a href="#" class="btn">Mua</a>
-            </div>
-
+            
+        </c:forEach>
         </div>
-
+    </div>
+   
+    <div class="swiper product-slider">
+        
+        <div class="swiper-wrapper">
+            <c:forEach items = "${listP}" var="p">
+            <div class="swiper-slide box">
+                <img src= ${p.image} alt="">
+                <h3> ${p.name} </h3>
+                <div class="price">${p.price}.000₫</div>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <a href="#" class="btn">Add cart</a>
+            </div>
+            
+        </c:forEach>
+        </div>
     </div>
 
-    <div class="swiper product-slider">
-
-        <div class="swiper-wrapper">
-
-            <div class="swiper-slide box">
-                <img src="image/product-5.png" alt="">
-                <h3>Khoai tây Đà Lạt(3-7 củ)</h3>
-                <div class="price"> 16.000₫ </div>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-                <a href="#" class="btn">Mua</a>
-            </div>
-
-            <div class="swiper-slide box">
-                <img src="image/product-6.png" alt="">
-                <h3>Bơ Sáp 1kg</h3>
-                <div class="price"> 18.000₫ </div>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-                <a href="#" class="btn">Mua</a>
-            </div>
-
-            <div class="swiper-slide box">
-                <img src="image/product-7.png" alt="">
-                <h3>Cà rốt Đà Lạt</h3>
-                <div class="price"> 19.000₫ </div>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-                <a href="#" class="btn">Mua</a>
-            </div>
-
-            <div class="swiper-slide box">
-                <img src="image/product-8.png" alt="">
-                <h3>Chanh không hạt 250g</h3>
-                <div class="price"> 13.000₫ </div>
-                <div class="stars">
-                    <i class="fas fa-stars"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-                <a href="#" class="btn">Mua</a>
-            </div>
-
-        </div>
-
-    </div>
 
 
 </section>
