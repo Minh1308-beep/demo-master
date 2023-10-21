@@ -251,3 +251,13 @@ table.table .avatar {
     border: none; 
     border-radius: 5px; 
 }
+
+.return-icon {
+    display: flex;
+    align-items: center;
+}
+
+.return-icon::after {
+    content: "\2192"; 
+    padding-left: 5px; 
+}

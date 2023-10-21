@@ -196,7 +196,6 @@
                 </div>
                 <a href="#" class="btn">Add cart</a>
             </div>
-            
         </c:forEach>
         </div>
     </div>

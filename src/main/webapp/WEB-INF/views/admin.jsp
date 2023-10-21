@@ -26,23 +26,30 @@
   <body>
     <div class="container">
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-			<a class="navbar-brand" href="#">Admin Dashboard</a>
+			<a class="navbar-brand" href="admin">Admin Dashboard</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 			  <span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNav">
 			  <ul class="navbar-nav">
 				<li class="nav-item">
-				  <a class="nav-link" href="admin">Products</a>
+				  	<a class="nav-link" href="admin">Products</a>
 				</li>
 				<li class="nav-item">
-				  <a class="nav-link" href="category">Categories</a>
+				 	<a class="nav-link" href="category">Categories</a>
 				</li>
 				<li class="nav-item">
-				  <a class="nav-link" href="#">Accounts</a>
+				  	<a class="nav-link" href="#">Accounts</a>
 				</li>
 			  </ul>
 			</div>
+			<ul class="nav navbar-nav navbar-right"> 
+				<li class="nav-item">
+					<a class="nav-link" href="home">
+						<span class="return-icon">Back &rarr;</span>
+					</a>
+				</li>
+			</ul>
 		  </nav>
         <div class="table-wrapper">
             <div class="table-title">
@@ -69,6 +76,8 @@
                         <th>Name</th>
 						<th>Price</th>
                         <th>Image</th>
+						<th>Quantity</th>
+						<th>Description</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -84,6 +93,8 @@
 						<td>${o.id}</td>
 						<td>${o.name}</td>
 						<td>${o.price}.000đ</td>
+						<td>${o.quantity}sl</td>
+						<td>${o.description}</td>
 						<td>
 							<img src= ${o.image} style="width: 100px; height: 100px">
 						</td>
@@ -148,7 +159,15 @@
 									<option value="${c.cid}">${c.cname}</option>
 								</c:forEach>
 							</select>
-						</div>						
+						</div>	
+						<div class="form-group">
+							<label>Quantity</label>
+							<input name="quantity" type="text" class="form-control" style="font-size: 16px;" required>
+						</div>
+						<div class="form-group">
+							<label>Description</label>
+							<input name="description" type="text" class="form-control" style="font-size: 16px;" required>
+						</div>					
 					</div>
 					<div class="modal-footer">
 						<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">

@@ -72,10 +72,9 @@ public class DBCrud {
             ps = conn.prepareStatement(sql);
             rs = ps.executeQuery();
             while(rs.next()) {
-                list.add(new Product(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getString(4), rs.getInt(5)));
+                list.add(new Product(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getString(4), rs.getInt(5), rs.getInt(6),rs.getString(7)));
             }
         } catch (Exception e) {
-            // TODO: handle exception
         }
         return list;
     }
@@ -106,7 +105,7 @@ public class DBCrud {
             ps.setString(1, cid);
             rs = ps.executeQuery();
             while(rs.next()) {
-                list.add(new Product(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getString(4), rs.getInt(5)));
+                list.add(new Product(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getString(4), rs.getInt(5), rs.getInt(6),rs.getString(7)));
             }
         } catch (Exception e) {
             // TODO: handle exception
@@ -125,8 +124,8 @@ public class DBCrud {
         }
     }
 
-    public void createProduct(String name, String price, String image, String category) {
-        String sql = "INSERT product (name, price, image, category_id) VALUES (?,?,?,?)";
+    public void createProduct(String name, String price, String image, String category, String quantity, String description) {
+        String sql = "INSERT product (name, price, image, category_id, quantity, description) VALUES (?,?,?,?,?,?)";
 
         try {
             new MySQLConnector();
@@ -136,6 +135,8 @@ public class DBCrud {
             ps.setString(2, price);
             ps.setString(3, image);
             ps.setString(4, category);
+            ps.setString(5, quantity);
+            ps.setString(6, description);
             ps.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
@@ -151,7 +152,7 @@ public class DBCrud {
             ps.setString(1, id);
             rs = ps.executeQuery(); 
             while(rs.next()) {
-                return new Product(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getString(4), rs.getInt(5));
+                return new Product(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getString(4), rs.getInt(5), rs.getInt(6),rs.getString(7));
             }
         } catch (Exception e) {
             e.printStackTrace();

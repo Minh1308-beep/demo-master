@@ -26,11 +26,13 @@ public class AddProductController extends HttpServlet{
         String pprice = req.getParameter("price");
         String pimage = req.getParameter("image");
         String pcategory = req.getParameter("category");
+        String pquantity = req.getParameter("quantity");
+        String pdescription = req.getParameter("description");
 
          // Ket noi Database
          DBCrud db = new DBCrud();
          // Them doi tuong vao Product
-         db.createProduct(pname, pprice ,pimage, pcategory);
+         db.createProduct(pname, pprice ,pimage, pcategory, pquantity, pdescription);
  
          
          resp.sendRedirect("admin");

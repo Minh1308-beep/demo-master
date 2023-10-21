@@ -26,23 +26,30 @@
   <body>
     <div class="container">
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-			<a class="navbar-brand" href="#">Admin Dashboard</a>
+			<a class="navbar-brand" href="admin">Admin Dashboard</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 			  <span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNav">
 			  <ul class="navbar-nav">
 				<li class="nav-item">
-				  <a class="nav-link" href="admin">Products</a>
+					<a class="nav-link" href="admin">Products</a>
 				</li>
 				<li class="nav-item">
-				  <a class="nav-link" href="category">Categories</a>
+				  	<a class="nav-link" href="category">Categories</a>
 				</li>
 				<li class="nav-item">
-				  <a class="nav-link" href="#">Accounts</a>
+				 	<a class="nav-link" href="#">Accounts</a>
 				</li>
 			  </ul>
 			</div>
+			<ul class="nav navbar-nav navbar-right"> 
+				<li class="nav-item">
+					<a class="nav-link" href="home">
+						<span class="return-icon">Back &rarr;</span>
+					</a>
+				</li>
+			</ul>
 		  </nav>
         <div class="table-wrapper">
             <div class="table-title">
