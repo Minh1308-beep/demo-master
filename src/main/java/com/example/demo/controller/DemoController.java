@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import java.io.IOException;
 import java.util.List;
 
+import com.example.demo.model.Category;
 import com.example.demo.model.DBCrud;
 import com.example.demo.model.Product;
 
@@ -22,8 +23,10 @@ public class DemoController extends HttpServlet{
 
         DBCrud db = new DBCrud();
         List<Product> list = db.getAllProduct();
+        List<Category> listC = db.getAllCategory();
 
         req.setAttribute("listP", list);
+        req.setAttribute("listC", listC);
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("/WEB-INF/views/index.jsp");
         requestDispatcher.forward(req, resp);
     }

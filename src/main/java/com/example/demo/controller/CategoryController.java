@@ -14,8 +14,8 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/admin")
-public class AdminController extends HttpServlet{
+@WebServlet("/category")
+public class CategoryController extends HttpServlet{
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -27,7 +27,7 @@ public class AdminController extends HttpServlet{
         req.setAttribute("listPP", listP); 
         req.setAttribute("listCC", listC);
 
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/WEB-INF/views/admin.jsp");
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/WEB-INF/views/category.jsp");
         requestDispatcher.forward(req, resp);
     }
 

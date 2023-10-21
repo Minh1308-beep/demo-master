@@ -21,7 +21,7 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-<script src="js/admin.js"></script>
+<script src="js/script.js"></script>
 
   <body>
     <div class="container">
@@ -48,10 +48,10 @@
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-6">
-						<h2>Manage <b>Products</b></h2>
+						<h2>Manage <b>Category</b></h2>
 					</div>
 					<div class="col-sm-6">
-						<a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Product</span></a>
+						<a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Category</span></a>
 						<a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Delete</span></a>						
 					</div>
                 </div>
@@ -67,13 +67,13 @@
 						</th>
                         <th>ID</th>
                         <th>Name</th>
-						<th>Price</th>
                         <th>Image</th>
+                        <th>Description</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <c:forEach items="${listPP}" var="o">
+                    <c:forEach items="${listCC}" var="o">
 					<tr>
 						<td>
 							<span class="custom-checkbox">
@@ -81,23 +81,23 @@
 								<label for="checkbox1"></label>
 							</span>
 						</td>
-						<td>${o.id}</td>
-						<td>${o.name}</td>
-						<td>${o.price}.000đ</td>
+						<td>${o.cid}</td>
+						<td>${o.cname}</td>
 						<td>
-							<img src= ${o.image} style="width: 100px; height: 100px">
+							<img src= ${o.cimage} style="width: 100px; height: 100px">
 						</td>
+                        <td>${o.cdescription}</td>
 						<td>
 							<a href="#">
 								<img src="" alt="" />
 							</a>
-							<a href="editProduct?pid=${o.id}">
+							<a href="editCategory?cid=${o.cid}">
 								<img src="image/edit.svg" alt="Update" width="20" height="20"/>
 							</a>							
 							<a href="#">
 								<img src="" alt="" />
 							</a>
-							<a href="deleteProduct?pid=${o.id}">
+							<a href="deleteCategory?cid=${o.cid}">
 								<img src="image/delete.svg" alt="Remove" width="20" height="20"/>
 							</a>
 						</td>
@@ -123,32 +123,24 @@
 	<div id="addEmployeeModal" class="modal fade">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<form method="post" action="addProduct">
+				<form method="post" action="addCategory">
 					<div class="modal-header">						
-						<h4 class="modal-title">Add Products</h4>
+						<h4 class="modal-title">Add Category</h4>
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 					</div>
 					<div class="modal-body">					
 						<div class="form-group">
 							<label>Name</label>
-							<input name="name" type="text" class="form-control" style="font-size: 16px;" required>
-						</div>
-						<div class="form-group">
-							<label>Price</label>
-							<input name="price" class="form-control" style="font-size: 16px;" required>
+							<input name="cname" type="text" class="form-control" style="font-size: 16px;" required>
 						</div>
 						<div class="form-group">
 							<label>Image</label>
-							<input name="image" type="text" class="form-control" style="font-size: 16px;" required>
-						</div>
-						<div class="form-group">
-							<label>Category</label>
-							<select name="category" aria-label="Default select example" class="form-select">
-								<c:forEach items="${listCC}" var="c">
-									<option value="${c.cid}">${c.cname}</option>
-								</c:forEach>
-							</select>
-						</div>						
+							<input name="cimage" type="text" class="form-control" style="font-size: 16px;" required>
+						</div>	
+                        <div class="form-group">
+							<label>Description</label>
+							<input name="cdescription" class="form-control" style="font-size: 16px;" required>
+						</div>		
 					</div>
 					<div class="modal-footer">
 						<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">

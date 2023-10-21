@@ -14,27 +14,37 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/admin")
-public class AdminController extends HttpServlet{
+@WebServlet("/editProduct")
+public class EditProductController extends HttpServlet{
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        DBCrud db = new DBCrud();
-        List<Product> listP = db.getAllProduct();
-        List<Category> listC = db.getAllCategory();
+        String id = req.getParameter("pid");
 
-        req.setAttribute("listPP", listP); 
+        DBCrud db = new DBCrud();
+
+        Product product = db.getProductByID(id);
+        req.setAttribute("detail", product);
+        List<Category> listC = db.getAllCategory();
         req.setAttribute("listCC", listC);
 
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/WEB-INF/views/admin.jsp");
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/WEB-INF/views/editProduct.jsp");
         requestDispatcher.forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        // TODO Auto-generated method stub
-        //super.doPost(req, resp);
+
+        String pid = req.getParameter("id");
+        String pname = req.getParameter("name");
+        String pprice = req.getParameter("price");
+        String pimage = req.getParameter("image");
+        String pcategory = req.getParameter("category");
+
+        DBCrud db = new DBCrud();
+        db.updateProduct(pname, pprice, pimage, pcategory, pid);
+        resp.sendRedirect("admin");
     }
     
 }

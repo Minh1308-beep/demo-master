@@ -1,11 +1,7 @@
 package com.example.demo.controller;
 
 import java.io.IOException;
-import java.util.List;
-
-import com.example.demo.model.Category;
 import com.example.demo.model.DBCrud;
-import com.example.demo.model.Product;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -14,27 +10,30 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/admin")
-public class AdminController extends HttpServlet{
+@WebServlet("/addProduct")
+public class AddProductController extends HttpServlet{
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        DBCrud db = new DBCrud();
-        List<Product> listP = db.getAllProduct();
-        List<Category> listC = db.getAllCategory();
-
-        req.setAttribute("listPP", listP); 
-        req.setAttribute("listCC", listC);
-
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("/WEB-INF/views/admin.jsp");
         requestDispatcher.forward(req, resp);
     }
-
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        // TODO Auto-generated method stub
-        //super.doPost(req, resp);
+         // Lay du lieu tu form cua Browser
+        String pname = req.getParameter("name");
+        String pprice = req.getParameter("price");
+        String pimage = req.getParameter("image");
+        String pcategory = req.getParameter("category");
+
+         // Ket noi Database
+         DBCrud db = new DBCrud();
+         // Them doi tuong vao Product
+         db.createProduct(pname, pprice ,pimage, pcategory);
+ 
+         
+         resp.sendRedirect("admin");
     }
     
 }

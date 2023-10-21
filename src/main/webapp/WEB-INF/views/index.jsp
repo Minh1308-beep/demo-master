@@ -88,8 +88,16 @@
 
     <form action="login" method="post" class="login-form">
         <c:if test="${sessionScope.acc != null}">
-            <h4>Xin chào ${sessionScope.acc.user}</h4>
-            <a href="logout">logout</a>
+            <div class="greetings">
+                <p>
+                  <i class="fa fa-user"></i>
+                  Xin chào, ${sessionScope.acc.user}
+                </p>
+                <a href="logout" class="btn btn-logout">
+                  <i class="fa fa-sign-out"></i>
+                  Logout
+                </a>
+            </div>
         </c:if>
         <c:if test="${sessionScope.acc == null}">
             <h3>login now</h3>
@@ -116,7 +124,7 @@
         <div class="content">
             <h3>SẢN PHẨM  <span>TƯƠI</span> VÀ<span> HỮU CƠ</span> CHO BẠN </h3>
             <p>THỰC PHẨM SẠCH CHO GIA ĐÌNH VIỆT </p>
-            <a href="#" class="btn">Đến Ngay</a>
+            <a href="#products" class="btn">Đến Ngay</a>
         </div>
     
     </section>
@@ -228,34 +236,15 @@
     <h1 class="heading"> Danh Mục<span>Sản Phẩm </span> </h1>
 
     <div class="box-container">
-
-        <div class="box">
-            <img src="image/cat-1.png" alt="">
-            <h3>Rau Củ Quả</h3>
-            <p>upto 45% off</p>
-            <a href="#" class="btn">Đến Ngay </a>
-        </div>
-
-        <div class="box">
-            <img src="image/cat-2.png" alt="">
-            <h3>Trái cây tươi</h3>
-            <p>upto 30% off</p>
-            <a href="#" class="btn">Đến Ngay </a>
-        </div>
-
-        <div class="box">
-            <img src="image/cat-3.png" alt="">
-            <h3>Sản phẩm sữa</h3>
-            <p>upto 50% off</p>
-            <a href="#" class="btn">Đến ngay</a>
-        </div>
-
-        <div class="box">
-            <img src="image/cat-4.png" alt="">
-            <h3>Thịt tươi sống</h3>
-            <p>upto 10% off</p>
-            <a href="#" class="btn">Đến ngay</a>
-        </div>
+        <c:forEach items = "${listC}" var="p">
+            <div class="box">
+                <img src = ${p.cimage} alt="">
+                <h3>${p.cname}</h3>
+                <p>${p.cdescription}</p>
+                <a href="" class="btn">Đến Ngay </a>
+            </div>
+        </c:forEach>
+    
 
     </div>
 

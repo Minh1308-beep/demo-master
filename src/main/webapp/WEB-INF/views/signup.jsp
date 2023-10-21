@@ -17,59 +17,13 @@
       <div class="box">
         <div class="inner-box">
           <div class="forms-wrap">
-            <form action="login" method="post" class="sign-in-form">
-              <div class="logo">
-                <img src="image/pp.png" alt="" />
-                <h4></h4>
-              </div>
-
-              <div class="heading">
-                <h2>Đăng Nhập</h2>
-                <h6>Bạn không có tài khoản?</h6>
-                <a href="#" class="toggle">Sign up</a>
-              </div>
-
-              <p style="color: red" >${mess}</p>
-              <div class="actual-form">
-                <div class="input-wrap">
-                  <input
-                    name="user"
-                    type="text"
-                    minlength="4"
-                    id="inputEmail"
-                    class="input-field"
-                    autocomplete="off"
-                    required
-                  />
-                  <label>Name</label>
-                </div>
-
-                <div class="input-wrap">
-                  <input
-                    name="pass"
-                    type="password"
-                    minlength="4"
-                    id="inputPassword"
-                    class="input-field"
-                    autocomplete="off"
-                    required
-                  />
-                  <label>Password</label>
-                </div>
-
-                <input type="submit" value="Sign In" class="sign-btn" />
-
-                <p class="text">
-                  Forgotten your password or you login details?
-                  <a href="#">Get help</a> signing in
-                </p>
-              </div>
-            </form>
-
+            
             <form action="signup" method = "post" class="sign-up-form">
               <div class="logo">
-                <img src="image/logo.png" alt="" />
-                <h4></h4>
+                <a href="home">
+                  <img src="image/pp.png" alt="" />
+                </a>
+                <h4>Group 6</h4>
               </div>
 
               <div class="heading">
@@ -123,6 +77,57 @@
                   By signing up, I agree to the
                   <a href="#">Terms of Services</a> and
                   <a href="#">Privacy Policy</a>
+                </p>
+              </div>
+            </form>
+
+            <form action="login" method="post" class="sign-in-form">
+              <div class="logo">
+                <a href="home">
+                  <img src="image/pp.png" alt="" />
+                </a>
+                <h4>Group 6</h4>
+              </div>
+
+              <div class="heading">
+                <h2>Đăng Nhập</h2>
+                <h6>Bạn không có tài khoản?</h6>
+                <a href="#" class="toggle">Sign up</a>
+              </div>
+
+              <p style="color: red" >${mess}</p>
+              <div class="actual-form">
+                <div class="input-wrap">
+                  <input
+                    name="user"
+                    type="text"
+                    minlength="4"
+                    id="inputEmail"
+                    class="input-field"
+                    autocomplete="off"
+                    required
+                  />
+                  <label>Name</label>
+                </div>
+
+                <div class="input-wrap">
+                  <input
+                    name="pass"
+                    type="password"
+                    minlength="4"
+                    id="inputPassword"
+                    class="input-field"
+                    autocomplete="off"
+                    required
+                  />
+                  <label>Password</label>
+                </div>
+
+                <input type="submit" value="Sign In" class="sign-btn" />
+
+                <p class="text">
+                  Forgotten your password or you login details?
+                  <a href="#">Get help</a> signing in
                 </p>
               </div>
             </form>
