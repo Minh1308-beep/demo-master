@@ -30,7 +30,6 @@ public class MySQLConnector {
             Class.forName("com.mysql.cj.jdbc.Driver");
             conn = DriverManager.getConnection(connectionURL, userName, password);
         } catch (ClassNotFoundException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         } catch (SQLException e) {
             // TODO Auto-generated catch block

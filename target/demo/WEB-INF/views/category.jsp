@@ -41,11 +41,15 @@
 				<li class="nav-item">
 				 	<a class="nav-link" href="#">Accounts</a>
 				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="home">Back</a>
-				</li>
 			  </ul>
 			</div>
+			<ul class="nav navbar-nav navbar-right"> 
+				<li class="nav-item">
+					<a class="nav-link" href="home">
+						<span class="return-icon">Back &rarr;</span>
+					</a>
+				</li>
+			</ul>
 		  </nav>
         <div class="table-wrapper">
             <div class="table-title">

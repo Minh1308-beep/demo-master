@@ -64,28 +64,9 @@
                 <span class="quantity">qty : 1</span>
             </div>
         </div>
-        <div class="box">
-            <i class="fas fa-trash"></i>
-            <img src="image/cart-img-2.png" alt="">
-            <div class="content">
-                <h3>Hành Tím  </h3>
-                <span class="price">15.000₫</span>
-                <span class="quantity">qty : 1</span>
-            </div>
-        </div>
-        <div class="box">
-            <i class="fas fa-trash"></i>
-            <img src="image/cart-img-3.png" alt="">
-            <div class="content">
-                <h3>Gà Công Nghiệp nguyên con 1kg-1.3kg</h3>
-                <span class="price">69.000₫</span>
-                <span class="quantity">qty : 1</span>
-            </div>
-        </div>
         <div class="total"> tổng :105.900 </div>
         <a href="#" class="btn">checkout</a>
     </div>
-
     <form action="login" method="post" class="login-form">
         <c:if test="${sessionScope.acc != null}">
             <div class="greetings">
@@ -184,8 +165,9 @@
         <div class="swiper-wrapper">
             <c:forEach items = "${listP}" var="p">
             <div class="swiper-slide box">
+                <a href="detail?pid=${p.id}">
                 <img src= ${p.image} alt="">
-                <h3> ${p.name} </h3>
+                <h3><a href="detail?pid=${p.id}" style="color: black; text-decoration: none;">${p.name}</a></h3>
                 <div class="price">${p.price}.000₫</div>
                 <div class="stars">
                     <i class="fas fa-star"></i>
@@ -194,7 +176,8 @@
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star-half-alt"></i>
                 </div>
-                <a href="#" class="btn">Add cart</a>
+                <a href="addCart?id=${p.id}" class="btn">Add cart</a>
+                </a>
             </div>
         </c:forEach>
         </div>
@@ -205,8 +188,9 @@
         <div class="swiper-wrapper">
             <c:forEach items = "${listP}" var="p">
             <div class="swiper-slide box">
+                <a href="detail?pid=${p.id}">
                 <img src= ${p.image} alt="">
-                <h3> ${p.name} </h3>
+                <h3><a href="detail?pid=${p.id}" style="color: black; text-decoration: none;">${p.name}</a></h3>
                 <div class="price">${p.price}.000₫</div>
                 <div class="stars">
                     <i class="fas fa-star"></i>
@@ -215,14 +199,12 @@
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star-half-alt"></i>
                 </div>
-                <a href="#" class="btn">Add cart</a>
+                <a href="addCart?id=${p.id}" class="btn">Add cart</a>
+                </a>
             </div>
-            
         </c:forEach>
         </div>
     </div>
-
-
 
 </section>
 
@@ -425,6 +407,14 @@
 
 <!-- custom js file link  -->
 <script src="js/script.js"></script>
+
+<script type="text/javascript">
+    function buy(id) {
+        var m=document.f.num.value;
+        document.f.action="buy?id="+id+"&num"+m;
+        document.f.submit();
+    }
+</script>
 
 </body>
 </html>

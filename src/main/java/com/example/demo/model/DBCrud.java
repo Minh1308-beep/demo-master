@@ -235,6 +235,35 @@ public class DBCrud {
         }
     }
 
+    public List<Cart> getCartProducts(ArrayList<Cart> cartList) {
+        List<Cart> products = new ArrayList<Cart>();
+        String sql = "SELECT * FROM product;";
+        try {
+            if(cartList.size()>0){
+                for(Cart item:cartList) {
+                    sql = "SELECT * FROM product WHERE id = ?";
+                    ps = conn.prepareStatement(sql);
+                    ps.setInt(1,item.getId());
+                    rs = ps.executeQuery();
+                    while(rs.next()) {
+                        Cart row = new Cart();
+                        row.setId(rs.getInt("id"));
+                        row.setName(rs.getString("name"));
+                        row.setPrice(rs.getInt("price")*item.getSoluong());
+                        row.setImage(rs.getString("image"));
+                        row.setCategory_id(rs.getInt("category_id"));
+                        row.setQuantity(rs.getInt("quantity"));
+                        row.setDescription(rs.getString("description"));
+                        row.setSoluong(item.getSoluong());
+                        products.add(row);
+                    }
+                }
+            }
+        } catch (Exception e) {
+        }
+        return products;
+    }
+
 
     public static void main(String[] args) {
         DBCrud db = new DBCrud();
