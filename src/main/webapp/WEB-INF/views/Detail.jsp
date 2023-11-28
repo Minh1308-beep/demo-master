@@ -120,40 +120,29 @@
 
 <!-- header section ends -->
 
+<div class="home-container">
+
+  <section class="home" id="home">
+
+      <div class="content">
+          <h3>SẢN PHẨM  <span>TƯƠI</span> VÀ<span> HỮU CƠ</span> CHO BẠN </h3>
+          <p>THỰC PHẨM SẠCH CHO GIA ĐÌNH VIỆT </p>
+          <a href="#products" class="btn">Đến Ngay</a>
+      </div>
+  
+  </section>
+  
+</div>
 <!-- body section starts  -->
 <div class = "card-wrapper">
-
+  <h1 class="heading">   Chi tiết <span>Sản Phẩm</span> </h1>
+  <!-- <form name ="f" action="" method="post"> -->
     <div class = "card">
       <!-- card left -->
       <div class = "product-imgs">
         <div class = "img-display">
           <div class = "img-showcase">
             <img src = ${detail.image} alt = "shoe image">
-            <img src = "image/shoe_2.jpg" alt = "shoe image">
-            <img src = "image/shoe_3.jpg" alt = "shoe image">
-            <img src = "image/shoe_4.jpg" alt = "shoe image">
-          </div>
-        </div>
-        <div class = "img-select">
-          <div class = "img-item">
-            <a href = "#" data-id = "1">
-              <img src = "${detail.image}" alt = "shoe image">
-            </a>
-          </div>
-          <div class = "img-item">
-            <a href = "#" data-id = "2">
-              <img src = "image/shoe_2.jpg" alt = "shoe image">
-            </a>
-          </div>
-          <div class = "img-item">
-            <a href = "#" data-id = "3">
-              <img src = "image/shoe_3.jpg" alt = "shoe image">
-            </a>
-          </div>
-          <div class = "img-item">
-            <a href = "#" data-id = "4">
-              <img src = "image/shoe_4.jpg" alt = "shoe image">
-            </a>
           </div>
         </div>
       </div>
@@ -187,7 +176,7 @@
         
 
         <div class = "purchase-info">
-          <input type = "number" min = "0" value = "1">
+          <input type = "number" name ="num" min = "0" value = "1">
           <button type = "button" class = "btn">
             Add to Cart <i class = "fas fa-shopping-cart"></i>
           </button>
@@ -214,9 +203,105 @@
         </div>
       </div>
     </div>
+  <!-- </form> -->
   </div>
 <!-- body section ends  -->
+<hr />
+<section class="products" id="products">
 
+  <h1 class="heading"> Một Số <span>Sản Phẩm </span> </h1>
+
+  
+  <div class="swiper product-slider">
+      
+      <div class="swiper-wrapper">
+          <c:forEach items = "${listP}" var="p">
+          <div class="swiper-slide box">
+              <a href="detail?pid=${p.id}">
+              <img src= ${p.image} alt="">
+              <h3><a href="detail?pid=${p.id}" style="color: black; text-decoration: none;">${p.name}</a></h3>
+              <div class="price">${p.price}.000₫</div>
+              <div class="stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+              </div>
+              <a href="addCart?id=${p.id}" class="btn">Add cart</a>
+              </a>
+          </div>
+      </c:forEach>
+      </div>
+  </div>
+
+</section>
+
+<section class="review" id="review">
+
+  <h1 class="heading">    <span>Đánh Giá </span> </h1>
+
+  <div class="swiper review-slider">
+
+      <div class="swiper-wrapper">
+
+          <div class="swiper-slide box">
+              <img src="image/pic-1.png" alt="">
+              <p>Sản phẩm chất lượng, tươi xanh giao hàng nhanh chóng </p>
+              <h3>Ông 7 hàng xóm </h3>
+              <div class="stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+              </div>
+          </div>
+
+          <div class="swiper-slide box">
+              <img src="image/pic-2.png" alt="">
+              <p>Từ lúc mà có cửa hàng này tui không phải thức sớm để đi chợ nữa</p>
+              <h3>Cô Tư </h3>
+              <div class="stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+              </div>
+          </div>
+
+          <div class="swiper-slide box">
+              <img src="image/pic-3.png" alt="">
+              <p>Giá hợp lý hàng hóa đa dạng có thể thanh toán được nhiều phương thức  </p>
+              <h3>Anh Tám </h3>
+              <div class="stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+              </div>
+          </div>
+
+          <div class="swiper-slide box">
+              <img src="image/pic-4.png" alt="">
+              <p>Hợp vệ sinh rẻ và rất tươi,shipper thân thiện nhiệt tình </p>
+              <h3>Chị Bảy</h3>
+              <div class="stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+              </div>
+          </div>
+
+      </div>
+
+  </div>
+
+</section>
 <!-- footer section starts  -->
 
 <section class="footer">

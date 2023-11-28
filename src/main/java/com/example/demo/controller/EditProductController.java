@@ -25,6 +25,7 @@ public class EditProductController extends HttpServlet{
         DBCrud db = new DBCrud();
 
         Product product = db.getProductByID(id);
+
         req.setAttribute("detail", product);
         List<Category> listC = db.getAllCategory();
         req.setAttribute("listCC", listC);

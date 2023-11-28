@@ -1,11 +1,9 @@
 package com.example.demo.controller;
 
 import java.io.IOException;
-import java.util.List;
 
 import com.example.demo.model.Category;
 import com.example.demo.model.DBCrud;
-import com.example.demo.model.Product;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;

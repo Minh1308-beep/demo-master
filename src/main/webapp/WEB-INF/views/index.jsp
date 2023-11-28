@@ -49,23 +49,12 @@
         <div class="fas fa-user" id="login-btn"></div>
     </div>
 
-    <form action="" class="search-form">
-        <input type="search" id="search-box" placeholder="search here...">
-        <label for="search-box" class="fas fa-search"></label>
+    <form action="search" method ="POST" class="search-form">
+        <input value="${txtS}" type="search" id="search-box" name="txt" placeholder="search here...">
+        <input class="search-form" type="submit">
     </form>
-
     <div class="shopping-cart">
-        <div class="box">
-            <i class="fas fa-trash"></i>
-            <img src="image/cart-img-1.png" alt="">
-            <div class="content">
-                <h3>Dưa hấu 2kg </h3>
-                <span class="price">21.900₫</span>
-                <span class="quantity">qty : 1</span>
-            </div>
-        </div>
-        <div class="total"> tổng :105.900 </div>
-        <a href="#" class="btn">checkout</a>
+        <a href="show" class="btn">Giỏ Hàng (${size})</a>
     </div>
     <form action="login" method="post" class="login-form">
         <c:if test="${sessionScope.acc != null}">
@@ -89,7 +78,6 @@
             <input type="submit" value="login now" class="btn">
         </c:if>
     </form>
-
     </section>
 
 </header>
@@ -159,11 +147,14 @@
 
     <h1 class="heading"> Một Số <span>Sản Phẩm </span> </h1>
 
-    
+<form name="f" action="" method="post">
+    Enter number of items: 
+    <input style="text-align: center" type="number" name="num" value="1"/>
     <div class="swiper product-slider">
         
         <div class="swiper-wrapper">
             <c:forEach items = "${listP}" var="p">
+            <c:set var="id" value="${p.id}"/>
             <div class="swiper-slide box">
                 <a href="detail?pid=${p.id}">
                 <img src= ${p.image} alt="">
@@ -176,15 +167,18 @@
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star-half-alt"></i>
                 </div>
-                <a href="addCart?id=${p.id}" class="btn">Add cart</a>
+                
+                <input type="button" class="btn" onclick="buy('${p.id}')" value="Add cart" />
                 </a>
             </div>
         </c:forEach>
+        
         </div>
     </div>
+</form>
    
-    <div class="swiper product-slider">
-        
+    
+    <div class="swiper product-slider">  
         <div class="swiper-wrapper">
             <c:forEach items = "${listP}" var="p">
             <div class="swiper-slide box">
@@ -202,9 +196,10 @@
                 <a href="addCart?id=${p.id}" class="btn">Add cart</a>
                 </a>
             </div>
-        </c:forEach>
+            </c:forEach>
         </div>
     </div>
+    
 
 </section>
 
@@ -408,6 +403,8 @@
 <!-- custom js file link  -->
 <script src="js/script.js"></script>
 
+</body>
+</html>
 <script type="text/javascript">
     function buy(id) {
         var m=document.f.num.value;
@@ -415,6 +412,3 @@
         document.f.submit();
     }
 </script>
-
-</body>
-</html>

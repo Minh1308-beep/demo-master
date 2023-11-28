@@ -29,7 +29,7 @@
               <div class="heading">
                 <h2>Đăng Nhập</h2>
                 <h6>Bạn không có tài khoản?</h6>
-                <a href="#" class="toggle">Sign up</a>
+                <a href="#" id = "su" name = "su" class="toggle">Sign up</a>
               </div>
 
               <p style="color: red" >${mess}</p>
@@ -38,6 +38,7 @@
                   <input
                     name="user"
                     type="text"
+                    value="${cookie.user.value}"
                     minlength="4"
                     id="inputEmail"
                     class="input-field"
@@ -51,6 +52,7 @@
                   <input
                     name="pass"
                     type="password"
+                    value="${cookie.pass.value}"
                     minlength="4"
                     id="inputPassword"
                     class="input-field"
@@ -59,7 +61,10 @@
                   />
                   <label>Password</label>
                 </div>
-
+                <div class="input-wrap">
+                  <input type="checkbox" ${(cookie.rem.value eq 'ON')?"checked":""} name="remember" value="ON"/> remember me<br/>
+                </div>
+                <!-- <input type="checkbox" ${(cookie.rem.value eq 'ON')?"checked":""} name="remember" value="ON"/>remember me<br/> -->
                 <input type="submit" value="Sign In" class="sign-btn" />
 
                 <p class="text">
@@ -80,7 +85,7 @@
               <div class="heading">
                 <h2>Đăng Ký</h2>
                 <h6>Bạn đã có tài khoản?</h6>
-                <a href="#" class="toggle">Sign in</a>
+                <a href="#" id = "su" name="su" class="toggle">Sign in</a>
               </div>
 
               <div class="actual-form">

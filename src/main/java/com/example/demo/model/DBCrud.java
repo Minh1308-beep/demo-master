@@ -159,6 +159,22 @@ public class DBCrud {
         }
         return null;
     }
+     public Product getProductByID2(int id) {
+        String sql = "SELECT * FROM product WHERE id = ?";
+        try {
+            new MySQLConnector();
+            conn = MySQLConnector.getMySQLConnection();
+            ps = conn.prepareStatement(sql);
+            ps.setInt(1, id);
+            rs = ps.executeQuery(); 
+            while(rs.next()) {
+                return new Product(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getString(4), rs.getInt(5), rs.getInt(6),rs.getString(7));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
     public void updateProduct(String name, String price, String image, String category, String pid) {
         String sql ="UPDATE product SET name = ?, price = ?, image = ?, category_id = ? WHERE id = ?";
@@ -235,33 +251,24 @@ public class DBCrud {
         }
     }
 
-    public List<Cart> getCartProducts(ArrayList<Cart> cartList) {
-        List<Cart> products = new ArrayList<Cart>();
-        String sql = "SELECT * FROM product;";
+    //tim sach theo name
+    public List<Product> getProductByName(String txtSearch) {
+        List<Product> list = new ArrayList<>();
+        String query = "SELECT * FROM product WHERE name like ?";
         try {
-            if(cartList.size()>0){
-                for(Cart item:cartList) {
-                    sql = "SELECT * FROM product WHERE id = ?";
-                    ps = conn.prepareStatement(sql);
-                    ps.setInt(1,item.getId());
-                    rs = ps.executeQuery();
-                    while(rs.next()) {
-                        Cart row = new Cart();
-                        row.setId(rs.getInt("id"));
-                        row.setName(rs.getString("name"));
-                        row.setPrice(rs.getInt("price")*item.getSoluong());
-                        row.setImage(rs.getString("image"));
-                        row.setCategory_id(rs.getInt("category_id"));
-                        row.setQuantity(rs.getInt("quantity"));
-                        row.setDescription(rs.getString("description"));
-                        row.setSoluong(item.getSoluong());
-                        products.add(row);
-                    }
-                }
+            new MySQLConnector();
+            conn = MySQLConnector.getMySQLConnection();
+            ps = conn.prepareStatement(query);
+            ps.setString(1, "%" + txtSearch + "%");
+            rs = ps.executeQuery();
+            while(rs.next()) {
+                list.add(new Product(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getString(4), rs.getInt(5), rs.getInt(6),rs.getString(7)));
             }
+
         } catch (Exception e) {
+            // TODO: handle exception
         }
-        return products;
+        return list;
     }
 
 
