@@ -1,6 +1,7 @@
 package com.example.demo.test;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 //import org.openqa.selenium.chrome.ChromeDriver;
@@ -9,23 +10,27 @@ import org.openqa.selenium.safari.SafariDriver;
 
 
 public class loginSuccessful {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws Exception {
         //System.setProperty("webdriver.edge.driver", "/Users/trinhdotuanminh/Downloads/msedgedriver.exe");
         WebDriver driver = new SafariDriver();
 
         //url web testing
-        driver.get("http://localhost:8055/demo/login");
-        driver.manage().window().maximize();
+        driver.get("http://localhost:8055/demo/login-test");
+        driver.manage().window().setSize(new Dimension(1211, 896));
 
+        loginTest(driver);
+        
+    }
+
+    public static void loginTest(WebDriver driver) throws Exception {
         //Find user Name and set username
-        WebElement txtbx_username = driver.findElement(By.id("inputEmail"));
-        txtbx_username.sendKeys("admin");
+        driver.findElement(By.id("loginName")).click();
+        driver.findElement(By.id("loginName")).sendKeys("admin");
         Thread.sleep(2000);
-        //Find password and set password
-        driver.findElement(By.id("inputPassword")).sendKeys("1234");
+        driver.findElement(By.id("loginPassword")).click();
+        driver.findElement(By.id("loginPassword")).sendKeys("21112003");
         Thread.sleep(2000);
-
-        driver.findElement(By.className("sign-btn")).click();
+        driver.findElement(By.cssSelector(".btn:nth-child(7)")).click();
         Thread.sleep(6000);
         
         //another way of doing
@@ -41,4 +46,5 @@ public class loginSuccessful {
             System.out.println("Failed to login");
         }
     }
+    
 }
